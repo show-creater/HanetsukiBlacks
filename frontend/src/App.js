@@ -8,7 +8,8 @@ function App() {
           <h4 className="header-text">Hanetsuki Blacks</h4>
         </div>
         <div className="header-body">
-          <h1>台中バドミントン</h1>
+          <h1 className="header-title">台中バドミントン</h1>
+          <h2 className="header-subtitle">- 羽月BLACKS -</h2>
         </div> 
       </header>
       <body>
