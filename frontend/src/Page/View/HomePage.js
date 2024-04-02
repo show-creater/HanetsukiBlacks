@@ -7,7 +7,13 @@ import {useState,useEffect} from 'react'
 
 function HomePage() {
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState([{
+    blogid: 0,
+    blog_title: "title",
+    blog_content: "content",
+    blog_image: "image",
+    blog_time: 0
+  }]);
 
   let navigate = useNavigate();
 
@@ -34,8 +40,14 @@ function HomePage() {
         }
         const json = await response.json();
         // ここでデータを加工してからセット
-        const processedData = {blogid: json.blogid, blog_title: json.blog_title, blog_content: json.blog_content, blog_image: json.blog_image, blog_time: json.blog_time};
-        console.log(`${data}`);
+        const processedData = json.map(item => ({
+          blogid: item.blogid,
+          blog_title: item.blog_title,
+          blog_content: item.blog_content,
+          blog_image: item.blog_image,
+          blog_time: item.blog_time
+        }));
+        console.log(processedData);
         setData(processedData);
       } catch (error) {
         console.error(error);
@@ -43,7 +55,6 @@ function HomePage() {
     };
   
     fetchData();
-    //console.log(time);
   }, []); // dodataが更新されたときに再フェッチ  
 
   return (
@@ -54,7 +65,7 @@ function HomePage() {
           <h4 onClick={HomeButton} style={{cursor: 'pointer'}} className="header-text">Hanetsuki Blacks</h4>
         </div>
         <div className="header-body">
-          <h1 class="header-title">羽月BLACKS</h1>
+          <h1 className="header-title">羽月BLACKS</h1>
           <h2 className="header-subtitle">- 台中バドミントンコミュニティ -</h2>
           <img src={TopImage} alt="TopImage" className="Top-image"/>
         </div> 
@@ -70,10 +81,11 @@ function HomePage() {
         <div className="body-middle-top">
           <h1>【BLOG】</h1>
           <h2>最新の投稿</h2>
-          <div className="Blog">
-            <h2>{`title: ${data.blog_title}`}</h2>
-            <img src={BodyImage} alt="BodyImage" className="Blog-image"/> 
-            <h3>content: こんにちは。羽月BLACKSです。この度サイトを作成しました。興味があったら是非連絡をください！</h3>
+          <div onClick={handleClick} style={{cursor: 'pointer'}} className="Blog">
+            <h2>{`${data[0].blogid}: ${data[0].blog_title}`}</h2>
+            <img src={data[0].blog_image} alt="BodyImage" className="Blog-image"/> 
+            <h3>{`content: ${data[0].blog_content}`}</h3>
+            <h4>{`${data[0].blog_time}`}</h4>
           </div>
           <h2 onClick={handleClick} style={{cursor: 'pointer'}} className="Blog-link">投稿一覧を見る</h2>
         </div>
