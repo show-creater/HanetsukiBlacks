@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   position: relative;
+  font-family: "M PLUS Rounded 1c";
 }
 
 .App-header {
@@ -96,7 +97,7 @@
   flex-direction: column;
   align-items: center;
   display: flex;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .Blog {
@@ -112,17 +113,31 @@
 }
 
 .Blog-image {
-  width: 670px;
+  width: 100%;
+}
+
+.Blog-link {
+  margin-top: 50px;
+  background-color: #242424;
+  color: pink;
+  padding: 8px;
+  border-radius: 10px;
 }
 
 .body-middle {
   z-index: 100;
   background-color: white;
   color: pink;
-  height: 80vh;
+  height: 100;
   padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #242424;
   padding-left: 10px;
+}
+
+.body-bottom {
+  background-color: #242424;
+  height: 1000px;
 }
 
 @keyframes App-logo-spin {
