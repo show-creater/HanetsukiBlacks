@@ -2,9 +2,13 @@ import '../Component/HomePage.css'
 import TopImage from '../Component/photo/TopImage.png'
 import BodyImage from '../Component/photo/BodyImage.png'
 import { useNavigate } from 'react-router-dom';
+import {useState,useEffect} from 'react'
 
 
 function HomePage() {
+
+  const [data, setData] = useState({});
+
   let navigate = useNavigate();
 
   function handleClick() {
@@ -18,6 +22,30 @@ function HomePage() {
   function ChatButton() {
     navigate('/Chat');
   }
+
+  useEffect(() => {
+    console.log('useEffect発火');
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest');
+        if (!response.ok) {
+          console.log('HTTP status code:', response.status);
+          throw new Error('Network response was not ok');
+        }
+        const json = await response.json();
+        // ここでデータを加工してからセット
+        const processedData = {blogid: json.blogid, blog_title: json.blog_title, blog_content: json.blog_content, blog_image: json.blog_image, blog_time: json.blog_time};
+        console.log(`${data}`);
+        setData(processedData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
+    //console.log(time);
+  }, []); // dodataが更新されたときに再フェッチ  
+
   return (
 
     <div className="App">
@@ -43,7 +71,7 @@ function HomePage() {
           <h1>【BLOG】</h1>
           <h2>最新の投稿</h2>
           <div className="Blog">
-            <h2>title: こんにちは</h2>
+            <h2>{`title: ${data.blog_title}`}</h2>
             <img src={BodyImage} alt="BodyImage" className="Blog-image"/> 
             <h3>content: こんにちは。羽月BLACKSです。この度サイトを作成しました。興味があったら是非連絡をください！</h3>
           </div>
