@@ -14,6 +14,10 @@ function HomePage() {
   function HomeButton() {
     navigate('/');
   }
+
+  function ChatButton() {
+    navigate('/Chat');
+  }
   return (
 
     <div className="App">
@@ -22,7 +26,7 @@ function HomePage() {
           <h4 onClick={HomeButton} style={{cursor: 'pointer'}} className="header-text">Hanetsuki Blacks</h4>
         </div>
         <div className="header-body">
-          <h1 className="header-title">羽月BLACKS</h1>
+          <h1 class="header-title">羽月BLACKS</h1>
           <h2 className="header-subtitle">- 台中バドミントンコミュニティ -</h2>
           <img src={TopImage} alt="TopImage" className="Top-image"/>
         </div> 
@@ -61,8 +65,10 @@ function HomePage() {
           <h2>大都會永春館電話：0423823353</h2>
         </div>
         <div className="body-bottom">
-          <div>
-            
+          <div className="board-top">
+            <h1>【掲示板】</h1>
+            <h2>参加希望や質問がありましたら以下の掲示板からお願いします！</h2>
+            <h2 onClick={ChatButton} style={{cursor: 'pointer'}} className='chat-link'>掲示板へアクセス</h2>
           </div>
         </div>
       </div>
