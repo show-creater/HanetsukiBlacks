@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+# settings
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
