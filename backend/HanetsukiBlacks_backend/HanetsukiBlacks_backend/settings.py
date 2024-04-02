@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-$9pffhgr-m-z#2buoca@8dwexq%xl+rgfusks#25x^ih6jy#2$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
+    'chat',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +78,12 @@ WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ha_tpci',
+        'USER': 'ha_tpci_user',
+        'PASSWORD': 'm1V5t1iwaaY1GGPXczYS24xD6EFY6QG9',
+        'HOST': 'dpg-co5vqasf7o1s73a8q6bg-a.singapore-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
