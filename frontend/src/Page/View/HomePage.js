@@ -47,7 +47,7 @@ function HomePage() {
             <img src={BodyImage} alt="BodyImage" className="Blog-image"/> 
             <h3>content: こんにちは。羽月BLACKSです。この度サイトを作成しました。興味があったら是非連絡をください！</h3>
           </div>
-          <h4 onClick={handleClick} style={{cursor: 'pointer'}} className="Blog-link">投稿一覧を見る</h4>
+          <h2 onClick={handleClick} style={{cursor: 'pointer'}} className="Blog-link">投稿一覧を見る</h2>
         </div>
         <div className="body-middle">
           <h2>【大都會永春館】</h2>
