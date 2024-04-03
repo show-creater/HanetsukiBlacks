@@ -34,10 +34,34 @@ function HomePage() {
   }
 
   useEffect(() => {
+    console.log('発火');
+    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest')
+  .then(response => {
+    // レスポンスヘッダーを取得する
+    for (let [key, value] of response.headers.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // レスポンスボディをJSONとして解析する場合
+    return response.json();
+  })
+  .then(data => {
+    console.log(data); // 解析されたデータを表示
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+  },[]);
+
+  useEffect(() => {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest');
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+          method: 'GET',
+          credentials: 'include',
+        });
         if (!response.ok) {
           console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
@@ -83,6 +107,7 @@ function HomePage() {
           <img src={BodyImage} alt="BodyImage" className="Body-image"/> 
         </div>
         <div className="body-middle-top">
+          <h1 style={{color: "red"}}>現在お知らせ機能と掲示板はメンテナンス中です</h1>
           <h1>【お知らせ】</h1>
           <h2>最新の投稿</h2>
           <div onClick={BlogLatestButton} style={{cursor: 'pointer'}} className="Blog">

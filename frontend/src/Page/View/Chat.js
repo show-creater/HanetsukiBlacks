@@ -27,7 +27,10 @@ function Blog() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/chat/get/all');
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+          method: 'GET',
+          credentials: 'include',
+        });
         if (!response.ok) {
           console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
@@ -58,6 +61,7 @@ function Blog() {
     try {
       const response = await fetch('https://hanetsukiblackssite.onrender.com/chat/get/all', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
