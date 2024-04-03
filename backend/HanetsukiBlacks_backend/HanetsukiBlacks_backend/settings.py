@@ -31,7 +31,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
 
