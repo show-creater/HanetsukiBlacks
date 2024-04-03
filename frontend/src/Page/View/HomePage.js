@@ -29,8 +29,12 @@ function HomePage() {
     navigate('/Chat');
   }
 
+  function BlogLatestButton() {
+    navigate('/BlogLatest');
+  }
+
   useEffect(() => {
-    console.log('useEffect発火');
+    // console.log('useEffect発火');
     const fetchData = async () => {
       try {
         const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest');
@@ -45,9 +49,9 @@ function HomePage() {
           blog_title: item.blog_title,
           blog_content: item.blog_content,
           blog_image: item.blog_image,
-          blog_time: item.blog_time
+          blog_time: new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'}).format(new Date(item.blog_time))
         }));
-        console.log(processedData);
+        // console.log(processedData);
         setData(processedData);
       } catch (error) {
         console.error(error);
@@ -79,24 +83,24 @@ function HomePage() {
           <img src={BodyImage} alt="BodyImage" className="Body-image"/> 
         </div>
         <div className="body-middle-top">
-          <h1>【BLOG】</h1>
+          <h1>【お知らせ】</h1>
           <h2>最新の投稿</h2>
-          <div onClick={handleClick} style={{cursor: 'pointer'}} className="Blog">
-            <h2>{`${data[0].blogid}: ${data[0].blog_title}`}</h2>
+          <div onClick={BlogLatestButton} style={{cursor: 'pointer'}} className="Blog">
+            <h2>{`${data[0].blog_title}`}</h2>
             <img src={data[0].blog_image} alt="BodyImage" className="Blog-image"/> 
-            <h3>{`content: ${data[0].blog_content}`}</h3>
+            <h3>{`${data[0].blog_content}`}</h3>
             <h4>{`${data[0].blog_time}`}</h4>
           </div>
-          <h2 onClick={handleClick} style={{cursor: 'pointer'}} className="Blog-link">投稿一覧を見る</h2>
+          <h2 onClick={handleClick} style={{cursor: 'pointer'}} className="Blog-link">お知らせ一覧を見る</h2>
         </div>
         <div className="body-middle">
-          <h2>【大都會永春館】</h2>
+          <h2 style={{color: 'pink'}}>【大都會永春館】</h2>
           <h2>場所：408台中市南屯區文心南五路三段392巷31號</h2>
           <h2>時間：毎週日曜日12:00~15:00(コート1、2)</h2>
           <h2>＊マイラケットなくても大丈夫です。シューズは各自ご持参ください。</h2>
           <h2>＊費用：男性300NTD／女性200NTD</h2>
           <br></br>
-          <h2>【アクセス】</h2>
+          <h2 style={{color: 'pink'}}>【アクセス】</h2>
           <h2>タクシー：西区から約10~15分(200元前後)</h2>
           <h2>バス：①忠明國中(199竹坑口)→向上永春東七路口</h2>
           <h2>→徒歩7分程→大都會永春館(計約40分ほど)</h2>
@@ -106,7 +110,7 @@ function HomePage() {
         </div>
         <div className="body-bottom">
           <div className="board-top">
-            <h1>【掲示板】</h1>
+            <h1 style={{color: 'pink'}}>【掲示板】</h1>
             <h2>参加希望や質問がありましたら以下の掲示板からお願いします！</h2>
             <h2 onClick={ChatButton} style={{cursor: 'pointer'}} className='chat-link'>掲示板へアクセス</h2>
           </div>

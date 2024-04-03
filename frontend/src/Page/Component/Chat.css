@@ -54,6 +54,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 90%;
 }
 
 .name {
@@ -63,26 +65,20 @@
 
 .user-name {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  width: 300%;
+  width: 100%;
   justify-content: flex-start;
 }
 
 .user-message {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  width: 300%;
+  width: 100%;
   justify-content: flex-start;
-}
-
-input[type="text"], textarea {
-  width: 100%; /* 親要素の幅に合わせる */
-  /* または */
-  width: 500px; /* 固定値で指定 */
 }
 
 textarea {
@@ -93,7 +89,7 @@ input[type="text"] {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  width: 400%;
+  width: 93.2%;
 }
 
 input[type="text"]:focus {
@@ -101,8 +97,8 @@ input[type="text"]:focus {
 }
 
 .message-input {
-  height: 400px;
   padding-bottom: 100px;
+  width: 100%;
 }
 
 .submit-button {
@@ -112,6 +108,22 @@ input[type="text"]:focus {
   font-size: 20px;
   border-radius: 30px;
   width: 80%;
+}
+
+.Chat-space {
+  min-height: 100vh;
+  color: #ff69b4;
+  background-color: white;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  padding-bottom: 50px;
+  border: 1px solid black;
+  padding-top: 20px;
+  border-radius: 10px;
+  width: 90%;
+  margin-bottom: 30px;
 }
 
 
