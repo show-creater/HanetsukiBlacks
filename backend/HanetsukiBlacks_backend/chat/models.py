@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Chat(models.Model):
     chatid = models.IntegerField(primary_key=True)
     chat_title = models.CharField(max_length=400)
