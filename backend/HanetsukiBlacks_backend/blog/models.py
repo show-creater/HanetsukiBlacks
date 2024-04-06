@@ -5,7 +5,7 @@ class Blog(models.Model):
     blogid = models.IntegerField(primary_key=True)
     blog_title = models.CharField(max_length=400)
     blog_content = models.TextField()
-    blog_image = models.URLField(max_length=1024, null=True, blank=True)
+    blog_image = models.ImageField(upload_to='my_images/', null=True)
     blog_time = models.DateTimeField(auto_now_add=True)
     
     

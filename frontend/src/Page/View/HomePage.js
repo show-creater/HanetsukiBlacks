@@ -33,6 +33,10 @@ function HomePage() {
     navigate('/BlogLatest');
   }
 
+  function AdminButton() {
+    navigate('/Login');
+  }
+
   useEffect(() => {
     console.log('発火');
     fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest')
@@ -139,6 +143,7 @@ function HomePage() {
             <h2>参加希望や質問がありましたら以下の掲示板からお願いします！</h2>
             <h2 onClick={ChatButton} style={{cursor: 'pointer'}} className='chat-link'>掲示板へアクセス</h2>
           </div>
+          <h2 onClick={AdminButton} style={{cursor: 'pointer', paddingBottom: 50}}>管理者ログイン</h2>
         </div>
       </div>
     </div>

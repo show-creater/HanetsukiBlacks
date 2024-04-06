@@ -27,7 +27,7 @@ function Blog() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/chat/get/all', {
           method: 'GET',
           credentials: 'include',
         });
@@ -78,7 +78,6 @@ function Blog() {
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
       // console.log(data);
       // 送信後の処理（例：フォームのクリア、成功メッセージの表示など）
     } catch (error) {
@@ -96,19 +95,24 @@ function Blog() {
           <div  className="Chat-space">
             {datas.map((data,index) => (
             <div key={index} className="Blog">
-              <h3>{`${data.chatid}. ${data.chat_sender}: ${data.chat_content}`}</h3>
-              <h4>{`${data.chat_time}`}</h4>
+              <div className="name-content">
+                <div style={{display: 'inline-block', justifyContent: 'flex-start'}}>
+                  <h3>{`${data.chatid}. ${data.chat_sender}：`}</h3>
+                </div>
+                <h3 style={{display: 'inline-block', whiteSpace: 'pre-wrap'}}>{`${data.chat_content}`}</h3>
+              </div>
+                <h4>{`${data.chat_time}`}</h4>
             </div>
             ))}
           </div>
           <div className="input-zone">
             <div className="user-name">
               <h2 className="name">名前</h2>
-              <input type="text" className="name-input" placeholder="名前を入力" value={name} onChange={(e) => setName(e.target.value)} />
+              <textarea type="text" className="name-input" placeholder="名前を入力" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="user-message">
               <h2 className="name">内容</h2>
-              <input type="text" className="message-input" placeholder="メッセージを入力" value={content} onChange={(e) => setContent(e.target.value)} />
+              <textarea type="text" className="message-input" placeholder="メッセージを入力" value={content} onChange={(e) => setContent(e.target.value)} />
             </div>
             <h3 style={{cursor: 'pointer'}} onClick={handleSubmit} className="submit-button">送信</h3>    
           </div>
