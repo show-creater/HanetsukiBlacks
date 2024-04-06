@@ -19,7 +19,6 @@
     "eject": "react-scripts eject"
   },
   "homepage": "https://hntkblacks.cloudfree.jp/",
-
   "eslintConfig": {
     "extends": [
       "react-app",

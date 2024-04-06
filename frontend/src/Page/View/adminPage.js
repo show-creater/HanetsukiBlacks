@@ -48,32 +48,34 @@ function Admin() {
     };
   
     fetchData();
-  }, []); // dodataが更新されたときに再フェッチ
+  }, []); 
 
   const handleUpload = async () => {
-
+    const formData = new FormData();
+    formData.append('blogid', num + 1); // ブログID
+    formData.append('blog_title', name); // タイトル
+    formData.append('blog_content', content); // 内容
+    formData.append('blog_image', image); // 画像
+  
     try {
-
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all', {
-            method: 'POST',
-            credentials: 'include',
-            body: JSON.stringify({
-              blogid: num+1,
-              blog_title: `${name}`,
-              blog_content: `${content}`,
-              blog_image: `${image}`,
-            }),
-          });
-          setName("");
-          setContent("");
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
+      const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all', {
+        method: 'POST',
+        credentials: 'include',
+        body: formData, // JSON.stringifyを使わずに、FormDataを直接セット
+      });
+  
+      setName("");
+      setContent("");
+      setImage(null); // 画像のステートもクリアする
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
     } catch (error) {
-        console.error('エラーが発生しました', error);
+      console.error('エラーが発生しました', error);
     }
-};
+  };
+  
 
   return (
       <div className="body">

@@ -22,7 +22,7 @@ function Blog() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all', {
           method: 'GET',
           credentials: 'include',
         });
@@ -57,7 +57,7 @@ function Blog() {
           <div className="body-middle-top">
             <h1>【お知らせ】</h1>
         { datas.map((data,index) => (
-            <div className="Blog">
+            <div key={index} className="Blog">
               <h2>{`#${data.blogid} ${data.blog_title}`}</h2>
               <img src={data.blog_image} alt="BodyImage" className="Blog-image"/> 
               <h3>{`${data.blog_content}`}</h3>

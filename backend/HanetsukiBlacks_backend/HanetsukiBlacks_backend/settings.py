@@ -42,7 +42,7 @@ CLOUDINARY_STORAGE = {
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
 
@@ -168,13 +168,13 @@ STATIC_URL = 'static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
-# CORS_ALLOW_ORIGINS = [
-#     "https://hanetsukiblackssite.onrender.com",
-#     "https://hntkblacks.cloudfree.jp"
-#     # "*"
-# ]
+CORS_ALLOW_ORIGINS = [
+    "https://hanetsukiblackssite.onrender.com",
+    "https://hntkblacks.cloudfree.jp"
+    # "*"
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
