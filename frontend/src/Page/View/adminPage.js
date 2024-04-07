@@ -28,7 +28,7 @@ function Admin() {
           credentials: 'include',
         });
         if (!response.ok) {
-          console.log('HTTP status code:', response.status);
+          // console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
@@ -43,7 +43,7 @@ function Admin() {
         // console.log(processedData);
         setNum(processedData.length);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   
@@ -72,7 +72,7 @@ function Admin() {
         throw new Error('Network response was not ok');
       }
     } catch (error) {
-      console.error('エラーが発生しました', error);
+      // console.error('エラーが発生しました', error);
     }
   };
   

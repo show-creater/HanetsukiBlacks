@@ -27,7 +27,7 @@ function Blog() {
           credentials: 'include',
         });
         if (!response.ok) {
-          console.log('HTTP status code:', response.status);
+          // console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
@@ -42,7 +42,7 @@ function Blog() {
         // console.log(processedData);
         setData(processedData);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   

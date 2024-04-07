@@ -38,22 +38,22 @@ function HomePage() {
   }
 
   useEffect(() => {
-    console.log('発火');
-    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest')
+    // console.log('発火');
+    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest/')
   .then(response => {
     // レスポンスヘッダーを取得する
     for (let [key, value] of response.headers.entries()) {
-      console.log(`${key}: ${value}`);
+      // console.log(`${key}: ${value}`);
     }
 
     // レスポンスボディをJSONとして解析する場合
     return response.json();
   })
   .then(data => {
-    console.log(data); // 解析されたデータを表示
+    // console.log(data); // 解析されたデータを表示
   })
   .catch(error => {
-    console.error('Error:', error);
+    // console.error('Error:', error);
   });
 
   },[]);
@@ -62,12 +62,12 @@ function HomePage() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest/', {
           method: 'GET',
           credentials: 'include',
         });
         if (!response.ok) {
-          console.log('HTTP status code:', response.status);
+          // console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
@@ -82,7 +82,7 @@ function HomePage() {
         // console.log(processedData);
         setData(processedData);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   

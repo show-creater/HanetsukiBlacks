@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   const checkTokenValidity = async () => {
     const token = localStorage.getItem('token'); // トークンの取得
     if (!token) {
-      console.log('トークンが存在しません。');
+      // console.log('トークンが存在しません。');
       return false;
     }
   
@@ -28,15 +28,15 @@ export const AuthProvider = ({ children }) => {
   
       if (response.ok) {
         // トークンが有効
-        console.log('トークンは有効です。');
+        // console.log('トークンは有効です。');
         return true;
       } else {
         // トークンが無効
-        console.log('トークンは無効です。');
+        // console.log('トークンは無効です。');
         return false;
       }
     } catch (error) {
-      console.error('エラーが発生しました:', error);
+      // console.error('エラーが発生しました:', error);
       return false;
     }
   };

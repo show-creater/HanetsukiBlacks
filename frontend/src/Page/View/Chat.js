@@ -32,7 +32,7 @@ function Blog() {
           credentials: 'include',
         });
         if (!response.ok) {
-          console.log('HTTP status code:', response.status);
+          // console.log('HTTP status code:', response.status);
           throw new Error('Network response was not ok');
         }
         const json = await response.json();
@@ -48,7 +48,7 @@ function Blog() {
         setDatas(processedData);
         setNum(processedData.length);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     };
   
@@ -81,7 +81,7 @@ function Blog() {
       // console.log(data);
       // 送信後の処理（例：フォームのクリア、成功メッセージの表示など）
     } catch (error) {
-      console.error('Error:', error);
+      // console.error('Error:', error);
     }
   };
 
