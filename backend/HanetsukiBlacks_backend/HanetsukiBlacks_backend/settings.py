@@ -171,7 +171,6 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ORIGINS = [
     "https://hanetsukiblackssite.onrender.com/",
     "https://hntkblacks.cloudfree.jp/"
-    # "*"
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
