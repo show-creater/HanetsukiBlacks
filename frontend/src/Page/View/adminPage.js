@@ -67,6 +67,7 @@ function Admin() {
       setName("");
       setContent("");
       setImage(null); // 画像のステートもクリアする
+      handleClick();
   
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -83,6 +84,7 @@ function Admin() {
           <h4 onClick={handleClick} style={{cursor: 'pointer'}} className="header-text">Hanetsuki Blacks</h4>
         </div>
         <div className="body-middle-top">
+          <h1>【管理者ページ】</h1>
           <div className="input-zone">
             <div className="user-name">
               <h2 className="name">画像</h2>
@@ -96,7 +98,7 @@ function Admin() {
               <h2 className="name">内容</h2>
               <textarea className="message-input" type="text" placeholder="メッセージを入力" value={content} onChange={(e) => {setContent(e.target.value);}} />
             </div>
-            <h3 style={{cursor: 'pointer'}} onClick={()=>{handleUpload(); }}className="submit-button">ブログを投稿</h3>    
+            <h3 style={{cursor: 'pointer'}} onClick={()=>{handleUpload(); }}className="submit-button">お知らせを投稿</h3>    
           </div>
         </div>
       </div>

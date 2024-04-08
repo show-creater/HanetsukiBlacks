@@ -1,6 +1,8 @@
 import '../Component/Chat.css';
 import { useNavigate } from 'react-router-dom';
 import {useState,useEffect} from 'react'
+import { isMobile, isBrowser } from 'react-device-detect';
+
 
 function Blog() {
 
@@ -93,11 +95,24 @@ function Blog() {
         <div className="body-middle-top">
           <h1>【掲示板】</h1>
           <div  className="Chat-space">
-            {datas.map((data,index) => (
+            {isMobile ?
+            datas.map((data,index) => (
+              <div key={index} className="Blog">
+                <div className="name-content2">
+                  <div style={{display: 'inline-block', justifyContent: 'flex-start'}}>
+                    <h3 className="sender">{`${data.chatid}. ${data.chat_sender}：`}</h3>
+                  </div>
+                  <h3 style={{display: 'inline-block', whiteSpace: 'pre-wrap'}}>{`${data.chat_content}`}</h3>
+                </div>
+                  <h4>{`${data.chat_time}`}</h4>
+              </div>
+              ))
+           :
+            datas.map((data,index) => (
             <div key={index} className="Blog">
               <div className="name-content">
                 <div style={{display: 'inline-block', justifyContent: 'flex-start'}}>
-                  <h3>{`${data.chatid}. ${data.chat_sender}：`}</h3>
+                  <h3 className="sender">{`${data.chatid}. ${data.chat_sender}：`}</h3>
                 </div>
                 <h3 style={{display: 'inline-block', whiteSpace: 'pre-wrap'}}>{`${data.chat_content}`}</h3>
               </div>

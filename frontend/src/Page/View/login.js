@@ -1,8 +1,11 @@
 import '../Component/Chat.css';
 import { useNavigate } from 'react-router-dom';
-import {useState,useEffect} from 'react'
+import {useState,useEffect} from 'react';
+import { useAuth } from '../../AuthContext';
 
 function Login() {
+
+  const { isAuthenticated, setAuthcheck } = useAuth();
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -33,14 +36,21 @@ function Login() {
             } else {
                 const data = await response.json()
                 localStorage.setItem('token', data.key);
+                setAuthcheck(true);
                 setErrors({status: 'succsess', errormessge: data});
-                navigate('/admin')
+                navigate('/Admin');
             }
         }catch(error){
             // console.error('失敗', error);
         }
         
     };
+
+    useEffect(()=>{
+      if (isAuthenticated) {
+        navigate('/Admin');
+      }
+    },[isAuthenticated]);
 
   // Intl.DateTimeFormatを使用してローカルタイムゾーンでの表示形式を
 

@@ -8,6 +8,7 @@ export function useAuth() {
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authcheck, setAuthcheck] = useState(false);
 
   const checkTokenValidity = async () => {
     const token = localStorage.getItem('token'); // トークンの取得
@@ -18,9 +19,9 @@ export const AuthProvider = ({ children }) => {
   
     try {
       const response = await fetch('https://hanetsukiblackssite.onrender.com/rest-auth/user/', {
-        method: 'POST', // またはGET、トークン検証のエンドポイントに依存
+        method: 'GET', // またはGET、トークン検証のエンドポイントに依存
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Token ${token}`,
           'Content-Type': 'application/json',
         },
         // body: JSON.stringify(data), // 必要に応じて
@@ -36,7 +37,7 @@ export const AuthProvider = ({ children }) => {
         return false;
       }
     } catch (error) {
-      // console.error('エラーが発生しました:', error);
+      console.error('エラーが発生しました:', error);
       return false;
     }
   };
@@ -49,7 +50,8 @@ export const AuthProvider = ({ children }) => {
     };
   
     verifyToken();
-  }, []);
+    setAuthcheck(false);
+  }, [authcheck]);
   
 
 
@@ -57,5 +59,5 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
   };
 
-  return <AuthContext.Provider value={{ isAuthenticated, login }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ authcheck, setAuthcheck, isAuthenticated, login }}>{children}</AuthContext.Provider>;
 };

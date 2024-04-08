@@ -2,10 +2,13 @@ import '../Component/HomePage.css'
 import TopImage from '../Component/photo/TopImage.png'
 import BodyImage from '../Component/photo/BodyImage.png'
 import { useNavigate } from 'react-router-dom';
-import {useState,useEffect} from 'react'
+import {useState,useEffect} from 'react';
+import {useAuth} from '../../AuthContext.js'
 
 
 function HomePage() {
+
+  const {authcheck, setAuthcheck} = useAuth();
 
   const [data, setData] = useState([{
     blogid: 0,
@@ -34,12 +37,13 @@ function HomePage() {
   }
 
   function AdminButton() {
+    setAuthcheck(true);
     navigate('/Login');
   }
 
   useEffect(() => {
     // console.log('発火');
-    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest/')
+    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest')
   .then(response => {
     // レスポンスヘッダーを取得する
     for (let [key, value] of response.headers.entries()) {
@@ -62,7 +66,7 @@ function HomePage() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest/', {
+        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
           method: 'GET',
           credentials: 'include',
         });
@@ -111,7 +115,6 @@ function HomePage() {
           <img src={BodyImage} alt="BodyImage" className="Body-image"/> 
         </div>
         <div className="body-middle-top">
-          <h1 style={{color: "red"}}>現在お知らせ機能と掲示板はメンテナンス中です</h1>
           <h1>【お知らせ】</h1>
           <h2>最新の投稿</h2>
           <div onClick={BlogLatestButton} style={{cursor: 'pointer'}} className="Blog">

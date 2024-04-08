@@ -6,8 +6,7 @@ import Admin from './Page/View/adminPage.js'; // ブログページのコンポ�
 import BlogLatest from './Page/View/BlogLatest.js';
 import Login from './Page/View/login.js';
 import { AuthProvider } from './AuthContext.js';
-import PrivateRoute from './Page/View/PrivateRoute.js';
-import usePrivateRoute from './Page/View/PrivateRoute.js';
+import PrivateRoute from './Page/View/PrivateRoute';
 import {useAuth} from './AuthContext.js';
 
 function App() {
@@ -20,12 +19,11 @@ function App() {
           <Route path="/Chat" element={<Chat />} />
           <Route path="/BlogLatest" element={<BlogLatest />} />
           <Route path="/Admin" element={
-            <usePrivateRoute>
+            <PrivateRoute>
               <Admin />
-            </usePrivateRoute>
+            </PrivateRoute>
           } />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/private" element={<usePrivateRoute/>} />
+          <Route path="/Login" element={<Login/>} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
