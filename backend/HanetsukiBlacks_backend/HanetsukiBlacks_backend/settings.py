@@ -39,7 +39,7 @@ CLOUDINARY_STORAGE = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", env('DEGAULTKEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = 'HanetsukiBlacks_backend.urls'
+ROOT_URLCONF = env('ROOT_URLCONF')
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
+WSGI_APPLICATION = env('WSGI_APPLICATION')
 
 
 # Database
@@ -121,11 +121,11 @@ WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ha_tpci',
-        'USER': 'ha_tpci_user',
-        'PASSWORD': 'm1V5t1iwaaY1GGPXczYS24xD6EFY6QG9',
-        'HOST': 'dpg-co5vqasf7o1s73a8q6bg-a.singapore-postgres.render.com',
-        'PORT': '5432',
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
     }
 }
 
@@ -169,7 +169,7 @@ STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://hanetsukiblackssite.onrender.com/",
+    # "https://hanetsukiblackssite.onrender.com/",
     "https://hntkblacks.cloudfree.jp"
 ]
 
