@@ -169,7 +169,7 @@ STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    # "https://hanetsukiblackssite.onrender.com/",
+    "https://hanetsukiblackssite.onrender.com/",
     "https://hntkblacks.cloudfree.jp"
 ]
 
