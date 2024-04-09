@@ -44,7 +44,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", env('DEFAULT_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
+ALLOWED_HOSTS = [env('ALLOW_HOST')]
 
 SECURE_SSL_REDIRECT = True
 
