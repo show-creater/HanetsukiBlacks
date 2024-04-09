@@ -1,1 +1,3 @@
-& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AeaYSHA-lDMHxDTSKtPr6g1NOcg4yjJz-_cfp907-hOon6m5V0rcrAFqRed19OW_jA9qFQ" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
+羽月BLACKSサイトのコードです。
+backendはdjangoで書いていて、サーバーはrenderを使用してデプロイしており、メディアファイルはcloudinaryを使用しています。
+フロントエンドはreactで書いていて、サーバーはxfreeを使用してデプロイしています。
