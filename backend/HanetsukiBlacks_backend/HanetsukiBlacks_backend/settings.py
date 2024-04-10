@@ -18,8 +18,8 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 
-# env = environ.Env()
-# env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, '.env'))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -29,18 +29,19 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': '161349964354277',
-    'API_KEY': '161349964354277',
-    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
+    'CLOUD_NAME': env('CLOUDINARY_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET'),
 }
 
 # Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", '!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+')
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
 
-# SECURITY WARNING: don't run with debug turned on in production
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
