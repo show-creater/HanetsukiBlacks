@@ -18,8 +18,8 @@ import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
+# env = environ.Env()
+# env.read_env(os.path.join(BASE_DIR, '.env'))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -29,21 +29,21 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUDINARY_NAME'),
-    'API_KEY': env('CLOUDINARY_API_KEY'),
-    'API_SECRET': env('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': os.path.join('CLOUDINARY_NAME'),
+    'API_KEY': os.path.join('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.path.join('CLOUDINARY_API_SECRET'),
 }
 
 # Quick-start development settings - unsuitable for production
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", env('DEFAULT_KEY'))
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production
 DEBUG = False
 
-ALLOWED_HOSTS = [env('ALLOW_HOST')]
+ALLOWED_HOSTS = [os.path.join('ALLOW_HOST')]
 
 SECURE_SSL_REDIRECT = True
 
@@ -93,7 +93,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = env('ROOT_URLCONF')
+ROOT_URLCONF = os.path.join('ROOT_URLCONF')
 
 TEMPLATES = [
     {
@@ -111,7 +111,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = env('WSGI_APPLICATION')
+WSGI_APPLICATION = os.path.join('WSGI_APPLICATION')
 
 
 # Database
@@ -120,11 +120,11 @@ WSGI_APPLICATION = env('WSGI_APPLICATION')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'NAME': os.path.join('NAME'),
+        'USER': os.path.join('USER'),
+        'PASSWORD': os.path.join('PASSWORD'),
+        'HOST': os.path.join('HOST'),
+        'PORT': os.path.join('PORT'),
     }
 }
 
