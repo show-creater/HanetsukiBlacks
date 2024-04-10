@@ -40,7 +40,7 @@ CLOUDINARY_STORAGE = {
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", env('DEFAULT_KEY'))
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECURITY WARNING: don't run with debug turned on in production
 DEBUG = False
 
 ALLOWED_HOSTS = [env('ALLOW_HOST')]
