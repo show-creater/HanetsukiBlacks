@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_NAME'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': '161349964354277',
+    'API_KEY': '161349964354277',
+    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
 }
 
 # Quick-start development settings - unsuitable for production
@@ -43,7 +43,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('ALLOW_HOST')]
+ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
 
 SECURE_SSL_REDIRECT = True
 
@@ -93,7 +93,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = os.environ.get('ROOT_URLCONF')
+ROOT_URLCONF = 'HanetsukiBlacks_backend.urls'
 
 TEMPLATES = [
     {
@@ -111,7 +111,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION')
+WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 
 
 # Database
@@ -120,11 +120,11 @@ WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('NAME'),
-        'USER': os.environ.get('USER'),
-        'PASSWORD': os.environ.get('PASSWORD'),
-        'HOST': os.environ.get('HOST'),
-        'PORT': os.environ.get('PORT'),
+        'NAME': 'ha_tpci',
+        'USER': 'ha_tpci_user',
+        'PASSWORD': 'm1V5t1iwaaY1GGPXczYS24xD6EFY6QG9',
+        'HOST': 'dpg-co5vqasf7o1s73a8q6bg-a.singapore-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
