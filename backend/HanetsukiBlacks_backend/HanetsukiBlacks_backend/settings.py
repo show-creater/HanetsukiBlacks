@@ -44,7 +44,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default="!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [env('ALLOW_HOST')]
+ALLOWED_HOSTS = ['hanetsukiblacks-wtgx.onrender.com']
 
 SECURE_SSL_REDIRECT = True
 
