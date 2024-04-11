@@ -123,7 +123,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('NAME'),
         'USER': env('USER'),
-        'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
+        'PASSWORD': env('PASSWORD'),
         'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
         'PORT': '5432',
     }
