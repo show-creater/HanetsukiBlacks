@@ -124,7 +124,7 @@ DATABASES = {
         'NAME': env('NAME'),
         'USER': env('USER'),
         'PASSWORD': env('PASSWORD'),
-        'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
+        'HOST': env('HOST'),
         'PORT': '5432',
     }
 }
