@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': env('CLOUDINARY_NAME'),
-    'API_KEY': env('CLOUDINARY_API_KEY'),
-    'API_SECRET': env('CLOUDINARY_API_SECRET'),
+    'CLOUD_NAME': 'CLOUDINARY_NAME',
+    'API_KEY': 'CLOUDINARY_API_KEY',
+    'API_SECRET': 'CLOUDINARY_API_SECRET',
 }
 
 # Quick-start development settings - unsuitable for production
@@ -39,12 +39,12 @@ CLOUDINARY_STORAGE = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = env('DJANGO_SECRET_KEY', default="!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
+SECRET_KEY = "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [env('ALLOW_HOST')]
+ALLOWED_HOSTS = ['ALLOW_HOST']
 
 SECURE_SSL_REDIRECT = True
 
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = env('ROOT_URLCONF')
+ROOT_URLCONF = 'ROOT_URLCONF'
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = env('WSGI_APPLICATION')
+WSGI_APPLICATION = 'WSGI_APPLICATION'
 
 
 # Database
@@ -121,11 +121,11 @@ WSGI_APPLICATION = env('WSGI_APPLICATION')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'NAME': 'NAME',
+        'USER': 'USER',
+        'PASSWORD': 'PASSWORD',
+        'HOST': 'HOST',
+        'PORT': 'PORT',
     }
 }
 
@@ -169,8 +169,8 @@ STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ORIGINS = [
-    env('CORS_ORIGIN1'),
-    env('CORS_ORIGIN2')
+    'CORS_ORIGIN1',
+    'CORS_ORIGIN2'
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
