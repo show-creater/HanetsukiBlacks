@@ -11,15 +11,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-import environ
+# import environ
 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, '.env'))
+# env = environ.Env()
+# env.read_env(os.path.join(BASE_DIR, '.env'))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
