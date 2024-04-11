@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhp4h8sbx',
-    'API_KEY': '161349964354277',
-    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
+    'CLOUD_NAME': env('CLOUDINARY_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET'),
 }
 
 # Quick-start development settings - unsuitable for production
@@ -39,12 +39,12 @@ CLOUDINARY_STORAGE = {
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
+SECRET_KEY = env("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk%*p3q9m$pme3b%17e3a+")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
+ALLOWED_HOSTS = [env('ALLOW_HOST')]
 
 SECURE_SSL_REDIRECT = True
 
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = 'HanetsukiBlacks_backend.urls'
+ROOT_URLCONF = env('ROOT_URLCONF')
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
+WSGI_APPLICATION = env('WSGI_APPLICATION')
 
 
 # Database
@@ -121,11 +121,11 @@ WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hanetsukiblacks',
-        'USER': 'hanetsukiblacks_user',
-        'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
-        'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
-        'PORT': '5432',
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'HOST': env('HOST'),
+        'PORT': env('PORT'),
     }
 }
 
@@ -168,12 +168,12 @@ STATIC_URL = 'static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
-# CORS_ALLOW_ORIGINS = [
-#     "https://hanetsukiblackssite.onrender.com/",
-#     "https://hntkblacks.cloudfree.jp"
-# ]
+CORS_ALLOW_ORIGINS = [
+    env('CORS_ORIGIN1'),
+    env('CORS_ORIGIN2')
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
