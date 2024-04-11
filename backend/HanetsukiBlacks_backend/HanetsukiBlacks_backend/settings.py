@@ -11,15 +11,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-# import environ
+import environ
 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) 
 
-# env = environ.Env()
-# env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, '.env'))
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_NAME', 'dhp4h8sbx'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY', '161349964354277'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'KPweXdAN9tdE7jQaaurv-K_jyzY'),
+    'CLOUD_NAME': 'dhp4h8sbx',
+    'API_KEY': '161349964354277',
+    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
 }
 
 # Quick-start development settings - unsuitable for production
@@ -44,7 +44,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [os.environ.get('ALLOW_HOST', 'hanetsukiblackssite.onrender.com')]
+ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
 
 SECURE_SSL_REDIRECT = True
 
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = os.environ.get('ROOT_URLCONF', 'HanetsukiBlacks_backend.urls')
+ROOT_URLCONF = 'HanetsukiBlacks_backend.urls'
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION', 'HanetsukiBlacks_backend.wsgi.application')
+WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 
 
 # Database
@@ -121,11 +121,11 @@ WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION', 'HanetsukiBlacks_backend.w
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('NAME', 'hanetsukiblacks'),
-        'USER': os.environ.get('USER', 'hanetsukiblacks_user'),
-        'PASSWORD': os.environ.get('PASSWORD', 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R'),
-        'HOST': os.environ.get('HOST', 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com'),
-        'PORT': os.environ.get('PORT', '5432'),
+        'NAME': 'hanetsukiblacks',
+        'USER': 'hanetsukiblacks_user',
+        'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
+        'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
@@ -168,12 +168,12 @@ STATIC_URL = 'static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    os.environ.get('CORS_ORIGIN1', 'https://hanetsukiblacks-wtgx.onrender.com/'),
-    os.environ.get('CORS_ORIGIN2', 'https://hntkblacks.cloudfree.jp')
-]
+# CORS_ALLOW_ORIGINS = [
+#     "https://hanetsukiblackssite.onrender.com/",
+#     "https://hntkblacks.cloudfree.jp"
+# ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
