@@ -44,7 +44,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hanetsukiblacks.onrender.com']
+ALLOWED_HOSTS = ['hanetsukiblackssite.onrender.com']
 
 SECURE_SSL_REDIRECT = True
 
@@ -175,7 +175,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-# Default primary key field typa
+# Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
