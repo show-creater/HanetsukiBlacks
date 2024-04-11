@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
+WSGI_APPLICATION = env('WSGI_APPLICATION')
 
 
 # Database
