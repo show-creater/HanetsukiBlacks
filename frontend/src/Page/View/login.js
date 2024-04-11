@@ -19,7 +19,7 @@ function Login() {
 
   const respon = async() => {
     try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/rest-auth/login/', {
+        const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/rest-auth/login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

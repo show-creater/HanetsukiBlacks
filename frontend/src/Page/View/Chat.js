@@ -29,7 +29,7 @@ function Blog() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/chat/get/all', {
+        const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/chat/get/all', {
           method: 'GET',
           credentials: 'include',
         });
@@ -61,7 +61,7 @@ function Blog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://hanetsukiblackssite.onrender.com/chat/get/all', {
+      const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/chat/get/all', {
         method: 'POST',
         credentials: 'include',
         headers: {

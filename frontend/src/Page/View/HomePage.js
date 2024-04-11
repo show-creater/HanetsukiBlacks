@@ -43,7 +43,7 @@ function HomePage() {
 
   useEffect(() => {
     // console.log('発火');
-    fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest')
+    fetch('https://hanetsukiblacks-wtgx.onrender.com/blog/get/all/latest')
   .then(response => {
     // レスポンスヘッダーを取得する
     for (let [key, value] of response.headers.entries()) {
@@ -66,7 +66,7 @@ function HomePage() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all/latest', {
+        const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/blog/get/all/latest', {
           method: 'GET',
           credentials: 'include',
         });

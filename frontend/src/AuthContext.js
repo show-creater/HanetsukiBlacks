@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
     }
   
     try {
-      const response = await fetch('https://hanetsukiblackssite.onrender.com/rest-auth/user/', {
+      const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/rest-auth/user/', {
         method: 'GET', // またはGET、トークン検証のエンドポイントに依存
         headers: {
           'Authorization': `Token ${token}`,

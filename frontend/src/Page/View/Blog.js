@@ -22,7 +22,7 @@ function Blog() {
     // console.log('useEffect発火');
     const fetchData = async () => {
       try {
-        const response = await fetch('https://hanetsukiblackssite.onrender.com/blog/get/all', {
+        const response = await fetch('https://hanetsukiblacks-wtgx.onrender.com/blog/get/all', {
           method: 'GET',
           credentials: 'include',
         });
