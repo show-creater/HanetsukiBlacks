@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhp4h8sbx',
-    'API_KEY': '161349964354277',
-    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 # Quick-start development settings - unsuitable for production
@@ -44,7 +44,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "!@b7$rv=ck14lc0bee&h4-v6unu@kk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hanetsukiblacks-wtgx.onrender.com']
+ALLOWED_HOSTS = [os.environ.get('ALLOW_HOST')]
 
 SECURE_SSL_REDIRECT = True
 
@@ -94,7 +94,7 @@ MIDDLEWARE = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-ROOT_URLCONF = 'HanetsukiBlacks_backend.urls'
+ROOT_URLCONF = os.environ.get('ROOT_URLCONF')
 
 TEMPLATES = [
     {
@@ -112,7 +112,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
+WSGI_APPLICATION = os.environ.get('WSGI_APPLICATION')
 
 
 # Database
@@ -121,11 +121,11 @@ WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hanetsukiblacks',
-        'USER': 'hanetsukiblacks_user',
-        'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
-        'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
-        'PORT': '5432',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
     }
 }
 
@@ -169,8 +169,8 @@ STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://hanetsukiblacks-wtgx.onrender.com/",
-    "https://hntkblacks.cloudfree.jp"
+    os.environ.get('CORS_ORIGIN1'),
+    os.environ.get('CORS_ORIGIN2')
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
