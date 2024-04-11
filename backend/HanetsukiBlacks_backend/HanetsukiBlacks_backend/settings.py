@@ -169,8 +169,8 @@ STATIC_URL = 'static/'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://hanetsukiblacks-wtgx.onrender.com/",
-    "https://hntkblacks.cloudfree.jp"
+    env('CORS_ORIGIN1'),
+    env('CORS_ORIGIN2')
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
