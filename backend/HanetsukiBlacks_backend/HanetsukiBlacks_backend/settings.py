@@ -121,10 +121,10 @@ WSGI_APPLICATION = 'HanetsukiBlacks_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ha_tpci',
-        'USER': 'ha_tpci_user',
-        'PASSWORD': 'm1V5t1iwaaY1GGPXczYS24xD6EFY6QG9',
-        'HOST': 'dpg-co5vqasf7o1s73a8q6bg-a.singapore-postgres.render.com',
+        'NAME': 'hanetsukiblacks',
+        'USER': 'hanetsukiblacks_user',
+        'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
+        'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
         'PORT': '5432',
     }
 }
