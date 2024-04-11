@@ -122,7 +122,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('NAME'),
-        'USER': 'hanetsukiblacks_user',
+        'USER': env('USER'),
         'PASSWORD': 'cnKz2NpFBXQtGGyqzKhGa7vFsBH0Qi4R',
         'HOST': 'dpg-cobql1ocmk4c73adrjdg-a.singapore-postgres.render.com',
         'PORT': '5432',
