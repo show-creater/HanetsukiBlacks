@@ -168,12 +168,12 @@ STATIC_URL = 'static/'
 
 CORS_ALLOW_CREDENTIALS = True
 
-# CORS_ALLOW_ORIGINS = [
-#     "https://hanetsukiblacks-wtgx.onrender.com/",
-#     "https://hntkblacks.cloudfree.jp"
-# ]
+CORS_ALLOW_ORIGINS = [
+    "https://hanetsukiblacks-wtgx.onrender.com/",
+    "https://hntkblacks.cloudfree.jp"
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
