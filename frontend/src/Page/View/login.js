@@ -1,4 +1,4 @@
-import '../Component/Chat.css';
+import '../Component/login.css';
 import { useNavigate } from 'react-router-dom';
 import {useState,useEffect} from 'react';
 import { useAuth } from '../../AuthContext';
@@ -52,7 +52,12 @@ function Login() {
       }
     },[isAuthenticated]);
 
-  // Intl.DateTimeFormatを使用してローカルタイムゾーンでの表示形式を
+    const handleKeyPress = (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        // ここにEnterキーを押した時の処理を書くことができます
+      }
+    }
 
   return (
       <div className="body">
@@ -65,11 +70,11 @@ function Login() {
           <div className="input-zone">
             <div className="user-name">
               <h2 className="name">UserName</h2>
-              <textarea type="text" className="name-input" placeholder="IDを入力" value={name} onChange={(e) => setName(e.target.value)} />
+              <textarea type="text" onKeyDown={handleKeyPress} className="name-input" placeholder="IDを入力" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="user-message">
               <h2 className="name">Password</h2>
-              <textarea type="text" className="name-input" placeholder="Passwordを入力" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <textarea type="text" onKeyDown={handleKeyPress} className="name-input" placeholder="Passwordを入力" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <h3 style={{cursor: 'pointer'}} onClick={()=>{respon()}} className="submit-button">ログイン</h3>    
           </div>

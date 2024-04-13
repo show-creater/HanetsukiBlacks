@@ -29,9 +29,9 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dhp4h8sbx',
-    'API_KEY': '161349964354277',
-    'API_SECRET': 'KPweXdAN9tdE7jQaaurv-K_jyzY',
+    'CLOUD_NAME': env('CLOUDINARY_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET'),
 }
 
 # Quick-start development settings - unsuitable for production

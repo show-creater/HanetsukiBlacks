@@ -90,6 +90,7 @@ textarea {
 .name-input {
   width: 100%;
   border-radius: 10px;
+  padding-top: 13px;
 }
 
 .message-input {

@@ -87,6 +87,13 @@ function Blog() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // ここにEnterキーを押した時の処理を書くことができます
+    }
+  };
+
   return (
       <div className="body">
         <div className="header-text-container">
@@ -123,7 +130,7 @@ function Blog() {
           <div className="input-zone">
             <div className="user-name">
               <h2 className="name">名前</h2>
-              <textarea type="text" className="name-input" placeholder="名前を入力" value={name} onChange={(e) => setName(e.target.value)} />
+              <textarea onKeyDown={handleKeyPress} type="text" className="name-input" placeholder="名前を入力" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="user-message">
               <h2 className="name">内容</h2>
